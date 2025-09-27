@@ -1,0 +1,7 @@
+role Adriana
+	modelPermission: read
+
+	tablePermission Menu_Navegacao = [Acesso] == "Adriana Katia"
+
+	annotation PBI_Id = 211313d65a9341b7a44a379d0007a961
+

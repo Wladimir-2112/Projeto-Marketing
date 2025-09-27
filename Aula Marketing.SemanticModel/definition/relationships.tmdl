@@ -1,0 +1,4 @@
+relationship 263702e1-dcf0-796c-5b63-254520ff7c91
+	fromColumn: dados_marketing.'Data Cadastro'
+	toColumn: dCalendario.Data
+

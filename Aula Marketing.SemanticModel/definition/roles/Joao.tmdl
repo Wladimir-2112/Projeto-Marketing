@@ -1,0 +1,7 @@
+role Joao
+	modelPermission: read
+
+	tablePermission Menu_Navegacao = [Acesso] == "João da Silva"
+
+	annotation PBI_Id = 54d03945274649fd84115b3fee1a4db6
+

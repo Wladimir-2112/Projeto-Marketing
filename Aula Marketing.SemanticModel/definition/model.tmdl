@@ -1,0 +1,25 @@
+model Model
+	culture: pt-BR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pt-BR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["DiretorioDados","dados_marketing","Menu_Navegacao"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table dados_marketing
+ref table dCalendario
+ref table 'Visão de Gasto '
+ref table Menu_Navegacao
+
+ref role Wladimir
+ref role Joao
+ref role Adriana
+
+ref cultureInfo pt-BR
+

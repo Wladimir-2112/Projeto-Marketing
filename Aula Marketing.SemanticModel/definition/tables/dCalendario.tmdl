@@ -1,0 +1,49 @@
+table dCalendario
+	lineageTag: ed1c769c-e03b-4550-94f2-41605de32079
+	dataCategory: Time
+
+	column Data
+		isKey
+		formatString: dd/mm/yyyy
+		lineageTag: 223f7c43-91a1-4021-bb97-4b6b52b699ad
+		summarizeBy: none
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Ano = YEAR(dCalendario[Data])
+		formatString: 0
+		lineageTag: a01e0a32-11ee-4ee4-b9ab-2bf37d59ba09
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mes = MONTH(dCalendario[Data])
+		formatString: 0
+		lineageTag: 0675287b-3b66-4f4a-b525-e058a1a36bd2
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dia = DAY( dCalendario[Data])
+		formatString: 0
+		lineageTag: 41f51e55-db05-4519-8052-65efef43e8ab
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Trimestre = QUARTER(dCalendario[Data])
+		formatString: 0
+		lineageTag: 7ca507d8-7504-4468-a659-18b6428ae8a1
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dCalendario = calculated
+		mode: import
+		source = CALENDAR(date(2018, 01,01), TODAY())
+
+	annotation PBI_Id = 0cc32813248447748f71e8b6980c7e9b
+

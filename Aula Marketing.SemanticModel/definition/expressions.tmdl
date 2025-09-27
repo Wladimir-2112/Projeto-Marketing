@@ -1,0 +1,8 @@
+/// Origem dos Dados
+expression DiretorioDados = "C:\Fatec\Fatec - Votorantim - Power BI\Aula 4 - Marketing" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: a494bfad-6f65-43a9-9b77-a48a3bd6f6b4
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Text
+

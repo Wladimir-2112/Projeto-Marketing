@@ -1,0 +1,7 @@
+role Wladimir
+	modelPermission: read
+
+	tablePermission Menu_Navegacao = [Acesso] == "Wladimir Zuanazzi"
+
+	annotation PBI_Id = 3bbb0c2cbe824349b0527667a334c264
+

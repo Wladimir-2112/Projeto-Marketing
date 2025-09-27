@@ -1,0 +1,42 @@
+table Menu_Navegacao
+	lineageTag: d4f0dd2d-9429-4e2c-8cf7-cf72a5b1c44e
+
+	column Ordem
+		dataType: int64
+		formatString: 0
+		lineageTag: 7c927dd8-b2ff-44fb-b393-5adb45b05772
+		summarizeBy: sum
+		sourceColumn: Ordem
+
+		annotation SummarizationSetBy = Automatic
+
+	column Página
+		dataType: string
+		lineageTag: 1bf1c882-e083-45e8-a896-cc728fa8d4b1
+		summarizeBy: none
+		sourceColumn: Página
+		sortByColumn: Ordem
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Acesso
+		dataType: string
+		lineageTag: 5ee352a3-168f-46af-9ff1-5660dd348696
+		summarizeBy: none
+		sourceColumn: Acesso
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Menu_Navegacao = m
+		mode: import
+		source =
+				let
+				    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMlTSUQrLLD68OF8hJV/BOSczNa8kFSgWnpOYkpmbWaQQVZqYl1hVlakUq4NbtWNKUSZQmYJ3YklmIlilEUKlc35uQX5RSWJuakk+TpNxq8c02xhJbWJuQWJeRmIxToNxKPbKB3siUSE4M6cMYqwJUDggP68kv1ghJVUhLDUvBZexsQA=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Ordem = _t, Página = _t, Acesso = _t]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"Ordem", Int64.Type}, {"Página", type text}, {"Acesso", type text}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_ResultType = Table
+

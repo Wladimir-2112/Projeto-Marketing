@@ -1,0 +1,48 @@
+table 'Visão de Gasto '
+	lineageTag: ef74de6c-020a-47c7-b268-de033d607f67
+
+	column 'Visão de Gasto '
+		lineageTag: 88d281f5-c4a6-4d01-b069-4efe41ba10a6
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Visão de Gasto  Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'Visão de Gasto  Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Visão de Gasto  Campos'
+		isHidden
+		lineageTag: bdbdba73-dd59-4cbf-9f92-d57f54c126a5
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Visão de Gasto  Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Visão de Gasto  Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: 0999846b-b64b-48a0-ab1a-9ca153d716d6
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Visão de Gasto ' = calculated
+		mode: import
+		source =
+				{
+				    ("Escolaridade", NAMEOF('dados_marketing'[Escolaridade]), 0),
+				    ("Estado Civil", NAMEOF('dados_marketing'[Estado Civil]), 1)
+				}
+
+	annotation PBI_Id = 9dff7738b27444fdab156a6ea083b6e3
+
